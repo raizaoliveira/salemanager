@@ -1,5 +1,5 @@
 import MySQLdb
-
+import main as GUI
 
 
 class conBD():
@@ -105,20 +105,5 @@ if __name__ == '__main__':
             query.cons_estq()
         if con == 2:
             query.cons_card()
-
-
-    #query ="insert into produto_estoque values( '" + nome + "'," + str(age) + " ) "
-    # db.query(query)
-    #db.insert(query)
-
-    # Data retrieved from the table
-    #select_query = """
-      ##WHERE idade = 21
-        #"""
-
-    #people = db.query(select_query)
-
-    #or person in people:
-      #  print "Found %s " % person['name']
 
 
