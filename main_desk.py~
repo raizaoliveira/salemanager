@@ -1,7 +1,7 @@
 import MySQLdb
 import main as GUI
 
-#import class here
+#import class
 class conBD():
 
     host = 'localhost'
