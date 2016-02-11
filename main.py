@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
+# Form implementation generated from reading ui file 'main.ui'
+#
+# Created by: PyQt4 UI code generator 4.11.4
+#
+# WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-import conf
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -17,22 +21,6 @@ try:
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-
-
-class MyDialog(QtGui.QDialog):
-    def __init__(self, parent=None):
-        super(MyDialog, self).__init__(parent)
-
-        self.buttonBox = QtGui.QDialogButtonBox(self)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-
-        self.textBrowser = QtGui.QTextBrowser(self)
-        self.textBrowser.append("This is a QTextBrowser!")
-
-        self.verticalLayout = QtGui.QVBoxLayout(self)
-        self.verticalLayout.addWidget(self.textBrowser)
-        self.verticalLayout.addWidget(self.buttonBox)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -62,10 +50,10 @@ class Ui_MainWindow(object):
         self.frame.setObjectName(_fromUtf8("frame"))
         self.gridLayout_2 = QtGui.QGridLayout(self.frame)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
-        self.lineEdit = QtGui.QLineEdit(self.frame)
-        self.lineEdit.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.gridLayout_2.addWidget(self.lineEdit, 2, 0, 1, 1)
+        self.lineEdit_item = QtGui.QLineEdit(self.frame)
+        self.lineEdit_item.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_item.setObjectName(_fromUtf8("lineEdit_item"))
+        self.gridLayout_2.addWidget(self.lineEdit_item, 2, 0, 1, 1)
         self.label_5 = QtGui.QLabel(self.frame)
         font = QtGui.QFont()
         font.setPointSize(45)
@@ -76,29 +64,20 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.label_5, 0, 2, 1, 2)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 0, 0, 1, 1)
-        self.pushButton = QtGui.QPushButton(self.frame)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.gridLayout_2.addWidget(self.pushButton, 7, 0, 1, 2)
         self.label = QtGui.QLabel(self.frame)
         self.label.setObjectName(_fromUtf8("label"))
         self.gridLayout_2.addWidget(self.label, 1, 0, 1, 1)
-        self.pushButton_2 = QtGui.QPushButton(self.frame)
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.gridLayout_2.addWidget(self.pushButton_2, 7, 3, 1, 1)
         self.label_3 = QtGui.QLabel(self.frame)
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout_2.addWidget(self.label_3, 1, 1, 1, 1)
-        self.pushButton_3 = QtGui.QPushButton(self.frame)
-        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
-        self.gridLayout_2.addWidget(self.pushButton_3, 7, 4, 1, 1)
-        self.lineEdit_3 = QtGui.QLineEdit(self.frame)
-        self.lineEdit_3.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3"))
-        self.gridLayout_2.addWidget(self.lineEdit_3, 2, 1, 1, 1)
-        self.lineEdit_2 = QtGui.QLineEdit(self.frame)
-        self.lineEdit_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.gridLayout_2.addWidget(self.lineEdit_2, 3, 1, 1, 1)
+        self.lineEdit_desc = QtGui.QLineEdit(self.frame)
+        self.lineEdit_desc.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_desc.setObjectName(_fromUtf8("lineEdit_desc"))
+        self.gridLayout_2.addWidget(self.lineEdit_desc, 2, 1, 1, 1)
+        self.lineEdit_Qtd = QtGui.QLineEdit(self.frame)
+        self.lineEdit_Qtd.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_Qtd.setObjectName(_fromUtf8("lineEdit_Qtd"))
+        self.gridLayout_2.addWidget(self.lineEdit_Qtd, 3, 1, 1, 1)
         self.label_2 = QtGui.QLabel(self.frame)
         self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_2.setAutoFillBackground(False)
@@ -109,33 +88,46 @@ class Ui_MainWindow(object):
         self.label_4.setAutoFillBackground(False)
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout_2.addWidget(self.label_4, 4, 0, 1, 1)
-        self.lcdNumber = QtGui.QLCDNumber(self.frame)
+        self.lcdNumber_Sub = QtGui.QLCDNumber(self.frame)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lcdNumber.sizePolicy().hasHeightForWidth())
-        self.lcdNumber.setSizePolicy(sizePolicy)
-        self.lcdNumber.setMinimumSize(QtCore.QSize(30, 50))
-        self.lcdNumber.setAutoFillBackground(True)
-        self.lcdNumber.setFrameShape(QtGui.QFrame.Panel)
-        self.lcdNumber.setObjectName(_fromUtf8("lcdNumber"))
-        self.gridLayout_2.addWidget(self.lcdNumber, 4, 1, 1, 1)
-        self.listView = QtGui.QListView(self.frame)
-        self.listView.setAutoFillBackground(True)
-        self.listView.setObjectName(_fromUtf8("listView"))
-        self.gridLayout_2.addWidget(self.listView, 1, 2, 6, 3)
-        self.lcdNumber_2 = QtGui.QLCDNumber(self.frame)
-        self.lcdNumber_2.setEnabled(False)
+        sizePolicy.setHeightForWidth(self.lcdNumber_Sub.sizePolicy().hasHeightForWidth())
+        self.lcdNumber_Sub.setSizePolicy(sizePolicy)
+        self.lcdNumber_Sub.setMinimumSize(QtCore.QSize(30, 50))
+        self.lcdNumber_Sub.setAutoFillBackground(True)
+        self.lcdNumber_Sub.setFrameShape(QtGui.QFrame.Panel)
+        self.lcdNumber_Sub.setObjectName(_fromUtf8("lcdNumber_Sub"))
+        self.gridLayout_2.addWidget(self.lcdNumber_Sub, 4, 1, 1, 1)
+        self.listView_cx = QtGui.QListView(self.frame)
+        self.listView_cx.setAutoFillBackground(True)
+        self.listView_cx.setObjectName(_fromUtf8("listView_cx"))
+        self.gridLayout_2.addWidget(self.listView_cx, 1, 2, 6, 3)
+        self.lcdNumber_Tot = QtGui.QLCDNumber(self.frame)
+        self.lcdNumber_Tot.setEnabled(False)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lcdNumber_2.sizePolicy().hasHeightForWidth())
-        self.lcdNumber_2.setSizePolicy(sizePolicy)
-        self.lcdNumber_2.setAutoFillBackground(True)
-        self.lcdNumber_2.setFrameShape(QtGui.QFrame.Panel)
-        self.lcdNumber_2.setObjectName(_fromUtf8("lcdNumber_2"))
-        self.gridLayout_2.addWidget(self.lcdNumber_2, 5, 0, 1, 2)
-        self.gridLayout_3.addWidget(self.frame, 0, 1, 1, 1)
+        sizePolicy.setHeightForWidth(self.lcdNumber_Tot.sizePolicy().hasHeightForWidth())
+        self.lcdNumber_Tot.setSizePolicy(sizePolicy)
+        self.lcdNumber_Tot.setAutoFillBackground(True)
+        self.lcdNumber_Tot.setFrameShape(QtGui.QFrame.Panel)
+        self.lcdNumber_Tot.setObjectName(_fromUtf8("lcdNumber_Tot"))
+        self.gridLayout_2.addWidget(self.lcdNumber_Tot, 5, 0, 1, 2)
+        self.groupBox_btn = QtGui.QGroupBox(self.frame)
+        self.groupBox_btn.setTitle(_fromUtf8(""))
+        self.groupBox_btn.setObjectName(_fromUtf8("groupBox_btn"))
+        self.pushButton_cancel_item = QtGui.QPushButton(self.groupBox_btn)
+        self.pushButton_cancel_item.setGeometry(QtCore.QRect(10, 0, 121, 27))
+        self.pushButton_cancel_item.setObjectName(_fromUtf8("pushButton_cancel_item"))
+        self.pushButton_cancel_venda = QtGui.QPushButton(self.groupBox_btn)
+        self.pushButton_cancel_venda.setGeometry(QtCore.QRect(130, 0, 131, 27))
+        self.pushButton_cancel_venda.setObjectName(_fromUtf8("pushButton_cancel_venda"))
+        self.pushButton_fechar_venda = QtGui.QPushButton(self.groupBox_btn)
+        self.pushButton_fechar_venda.setGeometry(QtCore.QRect(260, 0, 121, 27))
+        self.pushButton_fechar_venda.setObjectName(_fromUtf8("pushButton_fechar_venda"))
+        self.gridLayout_2.addWidget(self.groupBox_btn, 7, 2, 1, 2)
+        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab, _fromUtf8(""))
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
@@ -173,10 +165,8 @@ class Ui_MainWindow(object):
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
-
         self.toolBar = QtGui.QToolBar(MainWindow)
         self.toolBar.setObjectName(_fromUtf8("toolBar"))
-
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionCadastrar_produto = QtGui.QAction(MainWindow)
         self.actionCadastrar_produto.setObjectName(_fromUtf8("actionCadastrar_produto"))
@@ -218,6 +208,7 @@ class Ui_MainWindow(object):
         self.actionRelat_rio_por_produto.setObjectName(_fromUtf8("actionRelat_rio_por_produto"))
         self.actionSobre = QtGui.QAction(MainWindow)
         self.actionSobre.setObjectName(_fromUtf8("actionSobre"))
+        self.actionTool = QtGui.QAction(MainWindow)
 
         self.actionTool = QtGui.QAction(QtGui.QIcon('um.png'), 'Tolls', MainWindow)
         self.actionTool.setObjectName(_fromUtf8("actionTool"))
@@ -283,7 +274,6 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAjuda.menuAction())
         self.menubar.addAction(self.menuRelat_rios.menuAction())
         self.menubar.addAction(self.menuAjuda_2.menuAction())
-
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionTool)
         self.toolBar.addAction(self.actionSearch)
@@ -297,19 +287,19 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionSignout)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Desktop", None))
         self.label_5.setText(_translate("MainWindow", "Volte Sempre !", None))
-        self.pushButton.setText(_translate("MainWindow", "Cancelar Item", None))
         self.label.setText(_translate("MainWindow", "Item:", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Cancelar Venda", None))
         self.label_3.setText(_translate("MainWindow", "Descrição:", None))
-        self.pushButton_3.setText(_translate("MainWindow", "Fechar", None))
         self.label_2.setText(_translate("MainWindow", "Quantidade:", None))
         self.label_4.setText(_translate("MainWindow", "Subtotal:", None))
+        self.pushButton_cancel_item.setText(_translate("MainWindow", "Cancelar Item", None))
+        self.pushButton_cancel_venda.setText(_translate("MainWindow", "Cancelar Venda", None))
+        self.pushButton_fechar_venda.setText(_translate("MainWindow", "Fechar Venda", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Caixa", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Mesas", None))
         self.menuCadastro.setTitle(_translate("MainWindow", "Cadastro", None))
@@ -353,27 +343,3 @@ class Ui_MainWindow(object):
         self.actionCredit.setText(_translate("MainWindow", "credit", None))
         self.actionSignin.setText(_translate("MainWindow", "signin", None))
         self.actionSignout.setText(_translate("MainWindow", "signout", None))
-
-    def acTool(self):
-        x = conf.Ui_dialog_tool()
-        dialog_tool = QtGui.QDialog()
-        x.setupUi(dialog_tool)
-        dialog_tool.show()
-        print("click here")
-
-    @QtCore.pyqtSlot()
-    def on_pushButton_clicked(self):
-        self.dialogTextBrowser.exec_()
-
-
-
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

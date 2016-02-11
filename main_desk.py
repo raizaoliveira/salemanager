@@ -1,109 +1,69 @@
-import MySQLdb
-import main as GUI
+import main as UI
+from PyQt4 import QtCore, QtGui
+import sys
+import database as DB
 
-#import class here
-class conBD():
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
-    host = 'localhost'
-    user = 'root'
-    password = 'raiza9608'
-    db = 'deskschema'
+class mid(QtGui.QMainWindow, UI.Ui_MainWindow):
+    def __init__(self, parent=None):
+        super(mid, self).__init__(parent)
+        self.setupUi(self)
+        # aqui voce faz os bindings com funcoes do python
+        self.connect(self.pushButton_cancel_item,QtCore.SIGNAL("clicked()"),self.cancel_item)
+        self.connect(self.pushButton_cancel_venda,QtCore.SIGNAL("clicked()"),self.cancel_venda)
+        self.connect(self.pushButton_fechar_venda,QtCore.SIGNAL("clicked()"),self.fechar_venda)
 
-    def __init__(self):
-        self.connection = MySQLdb.connect(self.host, self.user, self.password, self.db)
-        self.cursor = self.connection.cursor()
-
-    def insert(self, query):
-        try:
-            self.cursor.execute(query)
-            self.connection.commit()
-            print("insert ok")
-        except:
-            print("insert not ok")
-            self.connection.rollback()
-
-    def delete(self, query):
-        try:
-            self.cursor.execute(query)
-            self.connection.commit()
-            print("delete ok")
-        except:
-            print("delete not ok")
-            self.connection.rollback()
-
-    def consul(self, query):
-        try:
-            self.cursor = self.connection.cursor( MySQLdb.cursors.DictCursor )#dicionario de dados
-            self.cursor.execute(query)
-            print("consulta ok")
-            return self.cursor.fetchall()
-
-        except:
-            print("consulta not ok")
-            self.connection.rollback()
+        #self.actionTool.setObjectName(_fromUtf8("actionTool"))
+        self.actionTool.triggered.connect(self.Tool)
+        self.actionSearch.triggered.connect(self.Search)
+        self.actionFood.triggered.connect(self.Food)
+        self.actionDrink.triggered.connect(self.Drink)
+        self.actionPhone.triggered.connect(self.Phone)
+        self.actionCalendar.triggered.connect(self.Calendar)
+        self.actionBd.triggered.connect(self.Bd)
+        self.actionCredit.triggered.connect(self.Credit)
+        self.actionSignin.triggered.connect(self.Signin)
+        self.actionSignout.triggered.connect(self.Signout)
 
 
-class input_data():
-
-    obdb = conBD()
-    def data_estq(self):
-        pk = input("primary key:  ")
-        qtd = input("quantidade:  ")
-        valor = input("valor:  ")
-        desc = raw_input("descricao:  ")
-        query ="insert into produto_estoque values(" + str(pk) + "," + str(qtd) + ","+ str(valor) +",'"+ desc +"' ) "
-        self.obdb.insert(query)
-
-    def data_card(self):
-        pk = input("primary key:  ")
-        produto = raw_input("produto:  ")
-        valor = input("valor:  ")
-        desc = raw_input("descricao:  ")
-        query ="insert into cardapio values(" + str(pk) + ",'" + produto + "',"+ str(valor) +",'"+ desc +"' ) "
-        self.obdb.insert_est(query)
-
-class del_data():
-    obdb = conBD()
-    def del_est(self):
-        pk = input("primary key: ")
-        query = "delete from produto_estoque where id = " + str(pk) +" "
-        self.obdb.delete(query)
-
-class cons_data():
-
-    obdb = conBD()
-
-    def cons_estq(self):
-        pk = input("primary key: ")
-        query = "select * from produto_estoque where id =" + str(pk) + " "
-        people = self.obdb.consul(query)
-        for person in people:
-            print ("Found %s " % person['id'])
-
-    def cons_card(self):
-        pk = input("primary key: ")
-        query = "select * from cardapio where id =" + str(pk) + " "
-        people = self.obdb.consul(query)
-        for person in people:
-            print ("Found %s " % person['produto'])
-
+    def cancel_item(self):
+        pass
+        #metodo para cancelar item
+    def cancel_venda(self):
+        pass
+        #metodo para cancelar venda
+    def fechar_venda(self):
+        pass
+        #metodo para fechar venda
+    def Tool(self):
+        print("clique actionTool")
+    def Search(self):
+        print("clique actionTool")
+    def Food(self):
+        pass
+    def Drink(self):
+        pass
+    def Phone(self):
+        pass
+    def Calendar(self):
+        pass
+    def Bd(self):
+        pass
+    def Credit(self):
+        pass
+    def Signin(self):
+        pass
+    def Signout(self):
+        pass
 
 
 if __name__ == '__main__':
-    ins = input_data()
-    dele = del_data()
-    query = cons_data()
-    opt = input("opcao:  1 insere 2 deleta 3 conulta : ")
-
-    if opt == 1:
-        ins.data_estq()
-    if opt == 2:
-        dele.del_est()
-    if opt == 3:
-        con = input("1 estoque  2 cardapio")
-        if con == 1:
-            query.cons_estq()
-        if con == 2:
-            query.cons_card()
-
-
+    app = QtGui.QApplication(sys.argv)
+    main_window = mid()
+    main_window.show()
+    app.exec_()
